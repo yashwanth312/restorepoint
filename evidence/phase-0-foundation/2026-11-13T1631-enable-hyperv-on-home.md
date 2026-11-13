@@ -13,7 +13,7 @@ Get-ChildItem "$env:SystemRoot\servicing\Packages\*Hyper-V*.mum" | ForEach-Objec
 dism /online /enable-feature /featurename:Microsoft-Hyper-V -All /LimitAccess /ALL
 ```
 
-Unedited DISM output: [2026-11-13T1631-enable-hyperv-dism-output.txt](2026-11-13T1631-enable-hyperv-dism-output.txt). It contains 50 package installs, each ending `The operation completed successfully.`, then `Enabling feature(s)` completing successfully with `Restart Windows to complete this operation.` The restart prompt was declined so the output could be saved, then the machine was restarted manually.
+Unedited DISM output: [2026-11-13T1631-enable-hyperv-dism-output.txt](2026-11-13T1631-enable-hyperv-dism-output.txt). It contains 58 package installs, each ending `The operation completed successfully.`, then `Enabling feature(s)` completing successfully with `Restart Windows to complete this operation.` The restart prompt was declined so the output could be saved, then the machine was restarted manually.
 
 `Checkpoint-Computer` printed nothing. A restore point is therefore not confirmed; the undo command below is the safety net.
 
