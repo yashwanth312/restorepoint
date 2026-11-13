@@ -1,0 +1,52 @@
+# Secrets and credentials: never commit
+*.key
+*.pem
+*.p12
+*.pfx
+.env
+.env.*
+secrets/
+credentials
+credentials.*
+aws-credentials*
+.aws/
+encryption-key*.json
+*.keyfile
+.vault_pass
+.vault_pass.*
+vault-password*
+*.private
+*.private.*
+
+# Backup artifacts and images
+*.iso
+*.img
+*.qcow2
+*.raw
+*.vma
+*.vma.*
+*.vzdump
+*.vzdump.*
+*.tar.zst
+*.chunks
+dump/
+wal-archive/
+
+# Ansible and script runtime output
+*.retry
+.ansible/
+__pycache__/
+*.pyc
+
+# Raw evidence that has not been scrubbed of IDs, IPs or hostnames
+evidence/**/raw/
+evidence/**/*.unscrubbed
+
+# Editors and OS noise
+.vscode/
+.idea/
+*.swp
+*~
+Thumbs.db
+desktop.ini
+.DS_Store
