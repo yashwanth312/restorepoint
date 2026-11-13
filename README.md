@@ -59,11 +59,11 @@ Each significant choice is written up in [`decisions/`](decisions/) with context
 | [0001](decisions/0001-immutable-offsite-copy.md) | Immutable offsite copy via vzdump and DB files in a locked bucket, not PBS-native | Accepted |
 | [0002](decisions/0002-windows-server-ad.md) | Windows Server AD from an evaluation ISO | Accepted |
 | [0003](decisions/0003-nested-virtualised-lab.md) | Run the lab nested in a VM on the workstation | Accepted |
-| [0004](decisions/0004-hyperv-as-nested-lab-hypervisor.md) | Hyper-V as the nested-lab hypervisor | Proposed |
+| [0004](decisions/0004-hyperv-as-nested-lab-hypervisor.md) | Hyper-V as the nested-lab hypervisor | Accepted |
 
 ## Lab notes
 
-- The lab runs nested in a VM on a single workstation, so timings show the method rather than production capacity.
+- The lab runs nested in a VM on a single workstation, so timings show the method rather than production capacity. In a test, plain CPU work in a guest ran about 1.5x slower than at the Proxmox layer ([evidence](evidence/phase-0-foundation/2026-11-13T1734-nested-speed-test-v3.md)).
 - PBS S3 datastores don't support Object Lock, so the immutable offsite copy is a separate, non-deduplicated copy job ([decision 0001](decisions/0001-immutable-offsite-copy.md)).
 - The site-loss rebuild restores from the S3 copy onto a fresh Proxmox install.
 
@@ -71,7 +71,7 @@ Each significant choice is written up in [`decisions/`](decisions/) with context
 
 | Phase | Gate | Status |
 |---|---|---|
-| 0. Foundation: nested Proxmox VM | Nested virtualisation works, web UI reachable, versions recorded | Not started |
+| 0. Foundation: nested Proxmox VM | Nested virtualisation works, web UI reachable, versions recorded | In progress (nesting verified; web UI evidence pending) |
 | 1. Storage and VMs | Pools healthy, quotas set, four VMs boot, baseline data sizes recorded | Not started |
 | 2. Local backups | Full and incremental backups, dedup ratio measured, manual restore works | Not started |
 | 3. PostgreSQL point-in-time recovery | Restore to a chosen timestamp, row count verified | Not started |

@@ -1,7 +1,7 @@
 # 0004: Hyper-V (enabled on Windows 11 Home) as the nested-lab hypervisor
 
 Date: 2026-11-13
-Status: Proposed. Becomes Accepted when the Phase 0 gate passes (Proxmox installs, `/dev/kvm` exists, a small VM inside it runs normally).
+Status: Accepted (2026-11-13), after the Phase 0 nested test passed ([evidence](../evidence/phase-0-foundation/2026-11-13T1734-nested-speed-test-v3.md)).
 
 ## Context
 
@@ -22,12 +22,12 @@ Option 3, validated by a time-boxed test. Fallbacks in order: option 5, then opt
 
 ## Why
 
-It costs nothing, touches no disks, and is reversible with one DISM command. Windows already runs on Hyper-V's hypervisor because of virtualisation-based security, so this adds the management stack, not a new layer. The trade-off is that Microsoft does not support Hyper-V on Home, and AMD nested performance is not guaranteed, hence Proposed until the gate passes.
+It costs nothing, touches no disks, and is reversible with one DISM command. Windows already runs on Hyper-V's hypervisor because of virtualisation-based security, so this adds the management stack, not a new layer. The trade-off is that Microsoft does not support Hyper-V on Home, and AMD nested performance is not guaranteed, which is why the decision stayed Proposed until the test passed.
 
 ## Findings so far
 
 - The Proxmox installer on a Generation 2 VM could not find its DVD ([evidence](../evidence/phase-0-foundation/2026-11-13T1639-gen2-installer-no-iso.md)), and on Generation 1 the graphical installer fails on the video device ([evidence](../evidence/phase-0-foundation/2026-11-13T1648-gen1-graphical-installer-fails.md)). The working combination is a Generation 1 VM with the text-mode installer.
-- `/dev/kvm` exists and `svm` is visible on all vCPUs ([evidence](../evidence/phase-0-foundation/2026-11-13T1658-nested-kvm-check.md)). Speed of a guest inside Proxmox is still to be measured before this becomes Accepted.
+- `/dev/kvm` exists and `svm` is visible on all vCPUs ([evidence](../evidence/phase-0-foundation/2026-11-13T1658-nested-kvm-check.md)). A guest inside Proxmox boots in about 6.5 to 6.7 s and ran a plain CPU loop 1.53x slower than the Proxmox layer, with KVM confirmed ([evidence](../evidence/phase-0-foundation/2026-11-13T1734-nested-speed-test-v3.md)). A hashing test ran 4.9x slower for a reason not yet isolated; it is noted in the evidence.
 
 ## Sources
 
