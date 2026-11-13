@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 440" role="img" aria-labelledby="t d">
+  <title id="t">The four layers of the lab</title>
+  <desc id="d">A stack: the Windows laptop, Hyper-V, the Proxmox VM, and a small test VM inside Proxmox. Each layer sits on the one above it.</desc>
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#374151"/></marker></defs>
+  <rect width="780" height="440" fill="#ffffff"/>
+  <text x="40" y="38" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="bold" fill="#111827">The lab is a stack of four layers</text>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#111827">
+    <rect x="40" y="62" width="430" height="70" rx="10" fill="#e5e7eb" stroke="#374151" stroke-width="2"/>
+    <text x="60" y="92" font-size="17" font-weight="bold">1. Your laptop: Windows 11 Home</text>
+    <text x="60" y="116" font-size="14">The real hardware. AMD Ryzen 9 8945HX.</text>
+    <line x1="255" y1="132" x2="255" y2="156" stroke="#374151" stroke-width="2" marker-end="url(#a)"/>
+    <rect x="40" y="160" width="430" height="70" rx="10" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"/>
+    <text x="60" y="190" font-size="17" font-weight="bold">2. Hyper-V</text>
+    <text x="60" y="214" font-size="14">Windows' built-in tool that makes VMs. We switched it on.</text>
+    <line x1="255" y1="230" x2="255" y2="254" stroke="#374151" stroke-width="2" marker-end="url(#a)"/>
+    <rect x="40" y="258" width="430" height="70" rx="10" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
+    <text x="60" y="288" font-size="17" font-weight="bold">3. Proxmox VM (named rp-pve)</text>
+    <text x="60" y="312" font-size="14">4 GB RAM, 4 CPUs. The whole lab will live here.</text>
+    <line x1="255" y1="328" x2="255" y2="352" stroke="#374151" stroke-width="2" marker-end="url(#a)"/>
+    <rect x="40" y="356" width="430" height="70" rx="10" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
+    <text x="60" y="386" font-size="17" font-weight="bold">4. Test VM inside Proxmox</text>
+    <text x="60" y="410" font-size="14">Tiny Alpine Linux. Our speed probe, later deleted.</text>
+    <text x="500" y="100" font-size="14" font-weight="bold">The real CPU:</text>
+    <text x="500" y="120" font-size="14">all the actual work ends up here.</text>
+    <text x="500" y="196" font-size="14" font-weight="bold">The worry:</text>
+    <text x="500" y="216" font-size="14">every extra layer can add delay.</text>
+    <text x="500" y="294" font-size="14" font-weight="bold">Layer 3 is our baseline:</text>
+    <text x="500" y="314" font-size="14">"how fast is Proxmox itself?"</text>
+    <text x="500" y="392" font-size="14" font-weight="bold">Layer 4 is a VM inside a VM</text>
+    <text x="500" y="412" font-size="14">("nested"). We time it against layer 3.</text>
+  </g>
+</svg>

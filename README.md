@@ -63,7 +63,7 @@ Each significant choice is written up in [`decisions/`](decisions/) with context
 
 ## Lab notes
 
-- The lab runs nested in a VM on a single workstation, so timings show the method rather than production capacity. In a test, plain CPU work in a guest ran about 1.5x slower than at the Proxmox layer ([evidence](evidence/phase-0-foundation/2026-11-13T1734-nested-speed-test-v3.md)).
+- The lab runs nested in a VM on a single workstation, so timings show the method rather than production capacity. In a test, plain CPU work in a guest ran about 1.5x slower than at the Proxmox layer. New to this? Read [Phase 0 explained](docs/phase-0-explained.md).
 - PBS S3 datastores don't support Object Lock, so the immutable offsite copy is a separate, non-deduplicated copy job ([decision 0001](decisions/0001-immutable-offsite-copy.md)).
 - The site-loss rebuild restores from the S3 copy onto a fresh Proxmox install.
 
@@ -71,7 +71,7 @@ Each significant choice is written up in [`decisions/`](decisions/) with context
 
 | Phase | Gate | Status |
 |---|---|---|
-| 0. Foundation: nested Proxmox VM | Nested virtualisation works, web UI reachable, versions recorded | In progress (nesting verified; web UI evidence pending) |
+| 0. Foundation: nested Proxmox VM | Nested virtualisation works, web UI reachable, versions recorded | Done |
 | 1. Storage and VMs | Pools healthy, quotas set, four VMs boot, baseline data sizes recorded | Not started |
 | 2. Local backups | Full and incremental backups, dedup ratio measured, manual restore works | Not started |
 | 3. PostgreSQL point-in-time recovery | Restore to a chosen timestamp, row count verified | Not started |
@@ -84,7 +84,7 @@ Each significant choice is written up in [`decisions/`](decisions/) with context
 ```
 decisions/   Architecture decision records
 evidence/    Dated test output behind every claim, passing and failing runs
-docs/        Runbooks and diagrams (added as they are written)
+docs/        Plain-language explainers, diagrams and runbooks (added as they are written)
 ```
 
 Scripts, Ansible roles and configuration are added phase by phase.
