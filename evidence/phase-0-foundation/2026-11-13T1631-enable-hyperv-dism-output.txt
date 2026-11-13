@@ -1,0 +1,534 @@
+PS C:\Windows\system32> Checkpoint-Computer -Description "pre-hyperv" -RestorePointType MODIFY_SETTINGS                 PS C:\Windows\system32> Get-ChildItem "$env:SystemRoot\servicing\Packages\*Hyper-V*.mum" | ForEach-Object { dism /online /norestart /add-package:"$($_.FullName)" }
+>> dism /online /enable-feature /featurename:Microsoft-Hyper-V -All /LimitAccess /ALL
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-ClientEdition-Package~31bf3856ad364e35~amd64~en-US~10.0.26100.1591
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-ClientEdition-Package~31bf3856ad364e35~amd64~en-US~10.0.26100.9278
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-ClientEdition-Package~31bf3856ad364e35~amd64~en-US~10.0.26100.9711
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-ClientEdition-Package~31bf3856ad364e35~amd64~~10.0.26100.1742
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-ClientEdition-Package~31bf3856ad364e35~amd64~~10.0.26100.9457
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-ClientEdition-Package~31bf3856ad364e35~amd64~~10.0.26100.9711
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-ClientEdition-WOW64-Package~31bf3856ad364e35~amd64~en-US~10.0.26100.1
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-ClientEdition-WOW64-Package~31bf3856ad364e35~amd64~~10.0.26100.1591
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-ClientEdition-WOW64-Package~31bf3856ad364e35~amd64~~10.0.26100.9278
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-ClientEdition-WOW64-Package~31bf3856ad364e35~amd64~~10.0.26100.9549
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Hypervisor-merged-Package~31bf3856ad364e35~amd64~en-US~10.0.26100.1
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Hypervisor-merged-Package~31bf3856ad364e35~amd64~~10.0.26100.1
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Hypervisor-Package~31bf3856ad364e35~amd64~en-US~10.0.26100.1
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Hypervisor-Package~31bf3856ad364e35~amd64~en-US~10.0.26100.1591
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Hypervisor-Package~31bf3856ad364e35~amd64~en-US~10.0.26100.8737
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Hypervisor-Package~31bf3856ad364e35~amd64~~10.0.26100.1742
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Hypervisor-Package~31bf3856ad364e35~amd64~~10.0.26100.9457
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Hypervisor-Package~31bf3856ad364e35~amd64~~10.0.26100.9711
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Offline-Common-merged-Package~31bf3856ad364e35~amd64~en-US~10.0.26100.1
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Offline-Common-merged-Package~31bf3856ad364e35~amd64~en-US~10.0.26100.9278
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Offline-Common-merged-Package~31bf3856ad364e35~amd64~~10.0.26100.1455
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Offline-Common-merged-Package~31bf3856ad364e35~amd64~~10.0.26100.9278
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Offline-Common-Package~31bf3856ad364e35~amd64~en-US~10.0.26100.1591
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Offline-Common-Package~31bf3856ad364e35~amd64~en-US~10.0.26100.9278
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Offline-Common-Package~31bf3856ad364e35~amd64~~10.0.26100.1742
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Offline-Common-Package~31bf3856ad364e35~amd64~~10.0.26100.9457
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Offline-Common-Package~31bf3856ad364e35~amd64~~10.0.26100.9711
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Offline-Core-Group-merged-Package~31bf3856ad364e35~amd64~en-US~10.0.26100.1
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Offline-Core-Group-merged-Package~31bf3856ad364e35~amd64~en-US~10.0.26100.8457
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Offline-Core-Group-merged-Package~31bf3856ad364e35~amd64~~10.0.26100.1591
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Offline-Core-Group-merged-Package~31bf3856ad364e35~amd64~~10.0.26100.9444
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Offline-Core-Group-merged-Package~31bf3856ad364e35~amd64~~10.0.26100.9711
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Offline-Core-Group-Package~31bf3856ad364e35~amd64~en-US~10.0.26100.1591
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Offline-Core-Group-Package~31bf3856ad364e35~amd64~en-US~10.0.26100.8737
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Offline-Core-Group-Package~31bf3856ad364e35~amd64~~10.0.26100.1742
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Offline-Core-Group-Package~31bf3856ad364e35~amd64~~10.0.26100.9457
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Offline-Core-Group-Package~31bf3856ad364e35~amd64~~10.0.26100.9711
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Online-Services-merged-Package~31bf3856ad364e35~amd64~en-US~10.0.26100.1
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Online-Services-merged-Package~31bf3856ad364e35~amd64~~10.0.26100.1150
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Online-Services-merged-Package~31bf3856ad364e35~amd64~~10.0.26100.9278
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Online-Services-Package~31bf3856ad364e35~amd64~en-US~10.0.26100.1
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Online-Services-Package~31bf3856ad364e35~amd64~en-US~10.0.26100.9168
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Online-Services-Package~31bf3856ad364e35~amd64~~10.0.26100.1742
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Online-Services-Package~31bf3856ad364e35~amd64~~10.0.26100.9457
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Online-Services-Package~31bf3856ad364e35~amd64~~10.0.26100.9711
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Package-base-merged-Package~31bf3856ad364e35~amd64~en-US~10.0.26100.1
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Package-base-merged-Package~31bf3856ad364e35~amd64~~10.0.26100.1150
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Package-base-merged-Package~31bf3856ad364e35~amd64~~10.0.26100.9444
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Package-base-merged-Package~31bf3856ad364e35~amd64~~10.0.26100.9711
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Package-base-Package~31bf3856ad364e35~amd64~en-US~10.0.26100.1
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Package-base-Package~31bf3856ad364e35~amd64~~10.0.26100.1591
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Package-base-Package~31bf3856ad364e35~amd64~~10.0.26100.9444
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Package-base-Package~31bf3856ad364e35~amd64~~10.0.26100.9711
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Services-Package~31bf3856ad364e35~amd64~en-US~10.0.26100.1591
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Services-Package~31bf3856ad364e35~amd64~en-US~10.0.26100.9278
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Services-Package~31bf3856ad364e35~amd64~~10.0.26100.1742
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Services-Package~31bf3856ad364e35~amd64~~10.0.26100.9457
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Processing 1 of 1 - Adding package Microsoft-Hyper-V-Services-Package~31bf3856ad364e35~amd64~~10.0.26100.9711
+[==========================100.0%==========================]
+The operation completed successfully.
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.9549
+
+Image Version: 10.0.26200.9974
+
+Enabling feature(s)
+[==========================100.0%==========================]
+The operation completed successfully.
+Restart Windows to complete this operation.

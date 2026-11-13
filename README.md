@@ -59,6 +59,7 @@ Each significant choice is written up in [`decisions/`](decisions/) with context
 | [0001](decisions/0001-immutable-offsite-copy.md) | Immutable offsite copy via vzdump and DB files in a locked bucket, not PBS-native | Accepted |
 | [0002](decisions/0002-windows-server-ad.md) | Windows Server AD from an evaluation ISO | Accepted |
 | [0003](decisions/0003-nested-virtualised-lab.md) | Run the lab nested in a VM on the workstation | Accepted |
+| [0004](decisions/0004-hyperv-as-nested-lab-hypervisor.md) | Hyper-V as the nested-lab hypervisor | Proposed |
 
 ## Lab notes
 
