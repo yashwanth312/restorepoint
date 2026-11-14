@@ -30,7 +30,32 @@ Which of `sdb`, `sdc`, `sdd` is which VHDX is not yet confirmed. The sizes (80, 
 2. **Guarded runs stopped on RAM.** The first guard needed 7.5 GB free, and the host had 6.8 to 6.9 GB free with apps closed. The threshold was lowered to 6.5 GB, and the VM RAM was then set to 6 GB by hand (see [decision 0006](../../decisions/0006-proxmox-vm-ram-sizing.md)).
 3. **Missing script output.** An early `throw` swallowed the `free ... GB` line and the NAT listing. The script now uses `Write-Host` and `Out-Host`, and creates the switch, address and NAT only if they are missing.
 
-## Not yet measured
+## Host memory pressure with the 6 GB VM running (18:34)
 
-- Host memory pressure with the 6 GB VM running (`Available MBytes`, `Pages/sec`). The counter command has been given; the output is still to come.
-- The pasted PowerShell output of the final run was not captured, so the Hyper-V side of this log rests on the Proxmox-side result above, not on the script's own printout.
+Command, in an administrator PowerShell on the host, lab idle, apps closed: `Get-Counter '\Memory\Available MBytes','\Memory\Pages/sec' -SampleInterval 2 -MaxSamples 5`. The screenshot is not committed because it shows the computer's name; the values are transcribed here.
+
+| Sample | Available MBytes | Pages/sec |
+|---|---|---|
+| 1 | 825 | 16.0 |
+| 2 | 828 | 31.2 |
+| 3 | 847 | 61.0 |
+| 4 | 846 | 51.5 |
+| 5 | 846 | 8.0 |
+
+Available memory held steady at about 0.83 GB and paging stayed under 100 per second. That meets the bars set beforehand (above 500 MB available, mostly under 100 pages per second), so 6 GB stands ([decision 0006](../../decisions/0006-proxmox-vm-ram-sizing.md)). This is an idle-lab reading. It has to be repeated with the four lab VMs running, which is the real test of the host margin. Pages/sec also counts ordinary file reads, so it overstates true paging.
+
+## Disk slots
+
+`lsblk -o NAME,SIZE,MODEL,HCTL` ([screenshot](2026-11-13T1834-apt-sources-and-disk-slots.png)):
+
+| Device | Size | SCSI address (controller:channel:target:LUN) | Role |
+|---|---|---|---|
+| `sdb` | 80 GB | 3:0:0:0 | LVM-thin (`rp-lvm.vhdx`, attached first) |
+| `sdc` | 80 GB | 3:0:0:1 | ZFS (`rp-zfs.vhdx`, attached second) |
+| `sdd` | 100 GB | 3:0:0:2 | PBS datastore (`rp-pbs.vhdx`, attached third) |
+
+The role of `sdb` and `sdc` follows the attach order; the two 80 GB disks are otherwise identical and empty. The size alone confirms `sdd`.
+
+## Repositories as found
+
+`/etc/apt/sources.list.d/` held `ceph.sources` (enterprise Ceph repo), `debian.sources`, and `pve-enterprise.sources`. Both Proxmox files point at `enterprise.proxmox.com`, which requires a paid subscription. They get disabled, and the `pve-no-subscription` repository added, in the next step.
