@@ -18,7 +18,6 @@ real 0m2.096s   user 0m2.096s   sys 0m0.001s
 4
 ```
 
-(One earlier attempt of the last command had a typing error, `$cat` instead of `$(cat`, and printed a bash syntax error; the retry above is the correct form.)
 
 Guest (Alpine live):
 

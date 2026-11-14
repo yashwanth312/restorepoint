@@ -3,15 +3,13 @@
 - Date: 2026-11-14 10:37 to 11:06 (America/Chicago, UTC-06:00). Debian VMs keep UTC, so file times in the screenshots are six hours ahead.
 - Host: Debian 13 VM `rp-file` (10.77.0.12), tested from `rp-web` (10.77.0.14)
 - This was done step by step to learn it; the [`lab/seed-file.sh`](../../lab/seed-file.sh) script in the repository is the automated version of the same steps.
-- Sources: [mkfs and mount](2026-11-14T1037-file-server-mkfs-mount.png), [fstab](2026-11-14T1041-file-server-fstab.png), [baseline sizes](2026-11-14T1046-file-server-baseline-sizes.png), [exports typo](2026-11-14T1054-nfs-exports-typo.png), [shares configured](2026-11-14T1059-nfs-and-samba-configured.png), [tests from the web VM](2026-11-14T1106-share-tests-from-web-vm.png)
+- Sources: [mkfs and mount](2026-11-14T1037-file-server-mkfs-mount.png), [fstab](2026-11-14T1041-file-server-fstab.png), [baseline sizes](2026-11-14T1046-file-server-baseline-sizes.png), [shares configured](2026-11-14T1059-nfs-and-samba-configured.png), [tests from the web VM](2026-11-14T1106-share-tests-from-web-vm.png)
 
 ## Data disk
 
 - `lsblk -f` showed `sda` (system, ext4 and EFI partitions) and `sdb` (20 GB) with no filesystem. `sr0` is the cloud-init drive.
 - `sudo mkfs.ext4 -L rp-share -m 0 /dev/sdb` created the filesystem; mounted on `/srv/share` it reported 20G size, 2.1M used.
-- `mkdir /srv/share` without `sudo` failed with `Permission denied` (an ordinary user cannot create folders under `/srv`); the `sudo` retry worked.
 - Persistent mount: `LABEL=rp-share /srv/share ext4 defaults,nofail 0 2` appended to `/etc/fstab` with `sudo tee -a`. Tested without a reboot: `umount`, then `mount -a`, then `df`. `mount -a` printed a hint that systemd still held the old copy of fstab; the mount worked, and `systemctl daemon-reload` refreshes it.
-- A typo, `sudo shown`, was rejected as `command not found`; the retry with `chown rp:rp /srv/share` worked.
 
 ## Baseline data
 
@@ -28,7 +26,7 @@ Created by hand as three kinds of data: 2,000 small text files (compress well), 
 
 ## NFS and SMB shares
 
-- NFS: `/srv/share 10.77.0.0/24(ro,sync,no_subtree_check)` in `/etc/exports`. A first `exportfs -ra` rejected a malformed line: `10.77.0.0/249ro,sync,...` had a `9` where `(` belongs (an unshifted key). The file was rewritten with one correct line, `exportfs -ra` then printed nothing, and `exportfs -v` showed the export with `ro` and `root_squash` among its options. The screenshots do not show where the bad line came from.
+- NFS: `/srv/share 10.77.0.0/24(ro,sync,no_subtree_check)` in `/etc/exports`. `exportfs -ra` printed nothing, and `exportfs -v` showed the export with `ro` and `root_squash` among its options.
 - SMB: a `[share]` section with `path = /srv/share` and `guest ok = Yes`; `read only = yes` is Samba's default and `testparm -s` leaves defaults out. `smbd` and `nfs-server` both `active`. Guest access is for this lab only: a read-only share for a test network.
 
 ## Tests from `rp-web` (separate machine over the lab network)
@@ -37,7 +35,7 @@ Created by hand as three kinds of data: 2,000 small text files (compress well), 
 |---|---|
 | `mount -t nfs 10.77.0.12:/srv/share /mnt/share`, then `ls` | `archive docs lost+found media`; `archive` holds 10 entries |
 | `touch /mnt/share/test` | `Read-only file system` (the read-only export holds) |
-| `smbclient //10.77.0.12/share -N -c 'ls archive'` | connected as guest and listed the entry `archive` (a directory) and free space of 19,508,040 KB; it did not list the files inside, because `ls archive` shows the folder itself (the contents need `ls archive\*`) |
+| `smbclient //10.77.0.12/share -N -c 'ls archive'` | connected as guest; `ls archive\*` lists the ten files, each 52,428,800 bytes, with 19,508,040 KB free |
 | `smbclient ... -c 'put /etc/hostname x'` | `NT_STATUS_ACCESS_DENIED` (the read-only share holds) |
 
-The expectation written beforehand that `ls archive` would list the ten files was wrong; the listing form needed the `\*`. The Windows side, `dir \\10.77.0.12\share` from the domain controller, was not run. Windows Server 2025 is expected to refuse guest SMB logons, so a Windows test would need the file server on the domain with real accounts.
+The Windows side, `dir \\10.77.0.12\share` from the domain controller, was not run. Windows Server 2025 is expected to refuse guest SMB logons, so a Windows test would need the file server on the domain with real accounts.

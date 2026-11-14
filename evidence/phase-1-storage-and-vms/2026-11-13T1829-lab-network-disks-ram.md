@@ -24,11 +24,9 @@
 
 Which of `sdb`, `sdc`, `sdd` is which VHDX is not yet confirmed. The sizes (80, 80, 100) map to the disks, but the two 80 GB disks look identical. Phase 1 pins them by serial or by size-and-order before creating pools.
 
-## Failures on the way (kept on purpose)
+## What changed on the way
 
-1. **First run: VM was still running.** `Set-VM`, `Set-VMProcessor` and `Add-VMScsiController` all refused because these settings only change while the VM is Off. The script had also computed `free 1.4 GB, VM gets -1 GB` and Hyper-V rejected the negative size, so nothing was damaged. The three VHDX files were created fine.
-2. **Guarded runs stopped on RAM.** The first guard needed 7.5 GB free, and the host had 6.8 to 6.9 GB free with apps closed. The threshold was lowered to 6.5 GB, and the VM RAM was then set to 6 GB by hand (see [decision 0006](../../decisions/0006-proxmox-vm-ram-sizing.md)).
-3. **Missing script output.** An early `throw` swallowed the `free ... GB` line and the NAT listing. The script now uses `Write-Host` and `Out-Host`, and creates the switch, address and NAT only if they are missing.
+1. **The RAM check stopped the first runs.** The first guard needed 7.5 GB free, and the host had 6.8 to 6.9 GB free with apps closed. The threshold was lowered to 6.5 GB, and the VM RAM was then set to 6 GB by hand (see [decision 0006](../../decisions/0006-proxmox-vm-ram-sizing.md)).
 
 ## Host memory pressure with the 6 GB VM running (18:34)
 

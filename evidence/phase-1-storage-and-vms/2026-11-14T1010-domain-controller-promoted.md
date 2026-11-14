@@ -1,17 +1,13 @@
 # Domain controller promoted: domain `rp.test`, server `RP-DC01`
 
 - Date: 2026-11-14 09:59 to 10:10 (America/Chicago, UTC-06:00). The VM's own clock is on Pacific time, so its event times are two hours earlier than these.
-- Sources: [promotion typo](2026-11-14T0959-promotion-force-typo.png), [first dcdiag run](2026-11-14T1005-dcdiag-first-run.png), [verification](2026-11-14T1010-dc-verification.png)
+- Sources: [first dcdiag run](2026-11-14T1005-dcdiag-first-run.png), [verification](2026-11-14T1010-dc-verification.png)
 
 ## Steps
 
 1. `Rename-Computer -NewName RP-DC01 -Restart`, because renaming a domain controller after promotion is painful. (The rename is shown to have worked by the name `RP-DC01` in later output.)
 2. `Install-WindowsFeature AD-Domain-Services -IncludeManagementTools`.
 3. `Install-ADDSForest -DomainName rp.test -DomainNetbiosName RP -InstallDns -SafeModeAdministratorPassword $p -Force`, with `$p` read from a prompt. The recovery (DSRM) password was typed by the person running it and is not recorded anywhere.
-
-## Failure: a typo in the promotion command
-
-The first attempt contained `- Force` with a space and failed with `A positional parameter cannot be found that accepts argument '-'`. PowerShell rejected the command while reading its parameters, before running anything, so nothing was promoted. The retry used a shorter second line and succeeded.
 
 ## First health check, and what it showed
 

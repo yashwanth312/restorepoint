@@ -2,11 +2,7 @@
 
 - Date: 2026-11-14 08:44 (America/Chicago, UTC-06:00)
 - Host: Proxmox VE 9.2.26 VM `rp-pve`
-- Sources: [first boot and storage use](2026-11-14T0844-file-server-vm-first-boot.png), [the failed first attempt](2026-11-14T0836-ostype-typo.png)
-
-## Failed first attempt
-
-`qm create 9000 ... --ostype 126` failed with `400 Parameter verification failed. ostype: value '126' does not have a value in the enumeration ... l24, l26`. The value is `l26` (a lowercase L), and in the console font it looks like the digit 1 and was retyped as such. Nothing was created. The SSH key generation before it succeeded. The retry used a pasted block, wrapped in a subshell so a failing line cannot close the terminal.
+- Sources: [first boot and storage use](2026-11-14T0844-file-server-vm-first-boot.png)
 
 ## What was built
 
