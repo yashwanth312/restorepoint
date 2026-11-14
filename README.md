@@ -62,6 +62,7 @@ Each significant choice is written up in [`decisions/`](decisions/) with context
 | [0004](decisions/0004-hyperv-as-nested-lab-hypervisor.md) | Hyper-V as the nested-lab hypervisor | Accepted |
 | [0005](decisions/0005-storage-layout.md) | Three separate thin disks for VM storage, ZFS and the backup datastore | Accepted |
 | [0006](decisions/0006-proxmox-vm-ram-sizing.md) | Size the Proxmox VM's RAM from measured free memory | Accepted |
+| [0007](decisions/0007-hand-built-lab-with-seed-scripts.md) | Build the lab VMs by hand, keep the seed scripts in the repository | Accepted |
 
 ## Lab notes
 
@@ -74,7 +75,7 @@ Each significant choice is written up in [`decisions/`](decisions/) with context
 | Phase | Gate | Status |
 |---|---|---|
 | 0. Foundation: nested Proxmox VM | Nested virtualisation works, web UI reachable, versions recorded | Done |
-| 1. Storage and VMs | Pools healthy, quotas set, four VMs boot, baseline data sizes recorded | In progress |
+| 1. Storage and VMs | Pools healthy, quotas set, four VMs boot, baseline data sizes recorded | Done ([gate check](evidence/phase-1-storage-and-vms/2026-11-14T1248-phase-1-gate-check.md)) |
 | 2. Local backups | Full and incremental backups, dedup ratio measured, manual restore works | Not started |
 | 3. PostgreSQL point-in-time recovery | Restore to a chosen timestamp, row count verified | Not started |
 | 4. Immutable offsite | Delete attempt on a locked object fails | Not started |
