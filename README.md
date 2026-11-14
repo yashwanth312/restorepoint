@@ -87,6 +87,7 @@ Each significant choice is written up in [`decisions/`](decisions/) with context
 decisions/   Architecture decision records
 evidence/    Dated test output behind every claim, passing and failing runs
 docs/        Plain-language explainers, diagrams and runbooks (added as they are written)
+lab/         Scripts that build and seed the lab VMs (safe to re-run)
 ```
 
-Scripts, Ansible roles and configuration are added phase by phase.
+More scripts, Ansible roles and configuration are added phase by phase.

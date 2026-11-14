@@ -21,3 +21,7 @@ The lab estimate is about 9 GB: Proxmox about 1.5 GB, AD about 2 GB, file server
 ## Why
 
 The extra GB helps the lab more than it costs Windows, and the setting is reversible in a minute. The 1.5 GB host margin was a rule of thumb, not a measurement, so the host check is part of the evidence. The trade-off is that the lab must be trimmed to fit: Windows Server Core for AD, LXC containers for web and PBS where possible, and the ZFS cache (ARC) capped at about 512 MB. Memory use will be measured per VM rather than estimated.
+
+## Update 2026-11-14
+
+All four lab VMs run together inside the 6 GB Proxmox VM with 1645 MB available and flat swap, idle ([evidence](../evidence/phase-1-storage-and-vms/2026-11-14T1026-four-vms-running-together.md)). The domain controller stays at 2 GB (it uses about 1.3 GB). No trimming was needed at idle; Proxmox Backup Server in Phase 2 is the next test of the margin.
