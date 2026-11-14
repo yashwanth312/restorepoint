@@ -20,3 +20,7 @@ Option 2: `rp-lvm.vhdx` (80 GB) for LVM-thin VM storage, `rp-zfs.vhdx` (80 GB) f
 ## Why
 
 A separate disk for the backup datastore means filling it cannot take down the VMs, and the capacity forecast in Phase 6 can read its growth directly. The trade-off is that all three disks share one SSD, so a failed drive loses everything, and the dynamic files can fill the Windows disk if the guests write more than expected. The Windows free-space check goes into the Phase 1 evidence.
+
+## Update 2026-11-14
+
+The ZFS storage entry in Proxmox points at the `rp-zfs/shares` dataset, not the pool root, so the 40 GB quota bounds every disk created there. The pool of a storage entry cannot be edited after creation; it was removed and re-added ([evidence](../evidence/phase-1-storage-and-vms/2026-11-14T0830-zfs-storage-repoint-and-debian-image.md)).

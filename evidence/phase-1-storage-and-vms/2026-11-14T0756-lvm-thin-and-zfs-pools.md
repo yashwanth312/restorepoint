@@ -37,3 +37,4 @@ The thin pool chunk size is 64 KiB, which the tool reported as able to address u
 - Commands were entered one at a time, not as the pasted script. The empty-disk guard output is not in the screenshots, so it is not claimed as run. Both disks had been seen empty in `lsblk` before.
 - The ZFS cache cap was written to the running system and to `/etc/modprobe.d/zfs.conf` without errors, but the live value was not read back. A read-back of `/sys/module/zfs/parameters/zfs_arc_max` is still to do, and the cap must survive a reboot.
 - `local-lvm` (20 GB, on the install disk) is unchanged and not used by the lab.
+- **Later correction:** the `pvesm add zfspool rp-zfs --pool rp-zfs` registration above was replaced by one pointing at `rp-zfs/shares` so the quota applies to VM disks. See [the fix](2026-11-14T0830-zfs-storage-repoint-and-debian-image.md).
