@@ -60,7 +60,7 @@ Each significant choice is written up in [`decisions/`](decisions/) with context
 | [0002](decisions/0002-windows-server-ad.md) | Windows Server AD from an evaluation ISO | Accepted |
 | [0003](decisions/0003-nested-virtualised-lab.md) | Run the lab nested in a VM on the workstation | Accepted |
 | [0004](decisions/0004-hyperv-as-nested-lab-hypervisor.md) | Hyper-V as the nested-lab hypervisor | Accepted |
-| [0005](decisions/0005-storage-layout.md) | Three separate thin disks for VM storage, ZFS and the backup datastore | Proposed |
+| [0005](decisions/0005-storage-layout.md) | Three separate thin disks for VM storage, ZFS and the backup datastore | Accepted |
 | [0006](decisions/0006-proxmox-vm-ram-sizing.md) | Size the Proxmox VM's RAM from measured free memory | Accepted |
 
 ## Lab notes

@@ -1,7 +1,7 @@
 # 0005: Three separate thin disks for VM storage, ZFS and the backup datastore
 
 Date: 2026-11-13
-Status: Proposed (becomes Accepted when the pools are created and healthy)
+Status: Accepted (2026-11-14), after the LVM-thin and ZFS pools were created healthy ([evidence](../evidence/phase-1-storage-and-vms/2026-11-14T0756-lvm-thin-and-zfs-pools.md)). The PBS datastore disk is still to be prepared.
 
 ## Context
 
