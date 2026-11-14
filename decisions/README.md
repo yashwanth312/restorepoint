@@ -10,5 +10,7 @@ Each record has: context, options, decision, and why (including the trade-off ac
 | [0002](0002-windows-server-ad.md) | Windows Server AD from an evaluation ISO | Accepted | 2026-11-13 |
 | [0003](0003-nested-virtualised-lab.md) | Run the lab nested in a VM on the workstation | Accepted | 2026-11-13 |
 | [0004](0004-hyperv-as-nested-lab-hypervisor.md) | Hyper-V (enabled on Windows 11 Home) as the nested-lab hypervisor | Accepted | 2026-11-13 |
+| [0005](0005-storage-layout.md) | Three separate thin disks for VM storage, ZFS and the backup datastore | Proposed | 2026-11-13 |
+| [0006](0006-proxmox-vm-ram-sizing.md) | Size the Proxmox VM's RAM from measured free memory | Accepted | 2026-11-13 |
 
 Statuses: Proposed, Accepted, Superseded. A superseded record stays in the repo and links to its replacement.
