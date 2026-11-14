@@ -26,3 +26,7 @@ Option 1.
 
 - Phase 1 records measured RAM per VM before any further sizing claims.
 - The drill must prove the restored DC works on an isolated network and never touches production.
+
+## Update 2026-11-14
+
+The evaluation ISO used is Windows Server 2025 from the Microsoft Evaluation Center: a 180-day evaluation, and it must be activated online within 10 days or it shuts itself down. The edition and installation option (Core or Desktop Experience) are chosen at install time. Microsoft lists 512 MB as the minimum RAM for Server Core and 2 GB for Desktop Experience; the real figure for a domain controller here will be measured, not assumed.
