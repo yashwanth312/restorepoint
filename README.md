@@ -42,7 +42,7 @@ flowchart LR
 
 | Goal | Target | Measured | Evidence |
 |---|---|---|---|
-| Full-VM restore from local backup | under 15 min | pending | |
+| Full-VM restore from local backup | under 15 min | 36 s to restore, 91 s until AD answered (40 GiB domain controller, one clean run, nested lab) | [restore tests](evidence/phase-2-local-backups/2026-11-14T1454-restore-tests.md) |
 | Database recovery to a chosen point in the last 7 days | RPO of 5 min or less | pending | |
 | Dedup ratio | 3:1 or better | pending | |
 | Restore drills passing | all drills in the measured window | pending | |
@@ -64,6 +64,7 @@ Each significant choice is written up in [`decisions/`](decisions/) with context
 | [0006](decisions/0006-proxmox-vm-ram-sizing.md) | Size the Proxmox VM's RAM from measured free memory | Accepted |
 | [0007](decisions/0007-hand-built-lab-with-seed-scripts.md) | Build the lab VMs by hand, keep the seed scripts in the repository | Accepted |
 | [0008](decisions/0008-pbs-in-a-container.md) | Run Proxmox Backup Server in an unprivileged container | Accepted |
+| [0009](decisions/0009-isolated-bridge-for-restore-drills.md) | Restore test copies onto an isolated bridge with a live network card | Accepted |
 
 ## Lab notes
 

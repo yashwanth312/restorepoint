@@ -14,5 +14,6 @@ Each record has: context, options, decision, and why (including the trade-off ac
 | [0006](0006-proxmox-vm-ram-sizing.md) | Size the Proxmox VM's RAM from measured free memory | Accepted | 2026-11-13 |
 | [0007](0007-hand-built-lab-with-seed-scripts.md) | Build the lab VMs by hand, keep the seed scripts in the repository | Accepted | 2026-11-14 |
 | [0008](0008-pbs-in-a-container.md) | Run Proxmox Backup Server in an unprivileged container | Accepted | 2026-11-14 |
+| [0009](0009-isolated-bridge-for-restore-drills.md) | Restore test copies onto an isolated bridge with a live network card | Accepted | 2026-11-14 |
 
 Statuses: Proposed, Accepted, Superseded. A superseded record stays in the repo and links to its replacement.
