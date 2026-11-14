@@ -30,3 +30,5 @@ Option 1.
 ## Update 2026-11-14
 
 The evaluation ISO used is Windows Server 2025 from the Microsoft Evaluation Center: a 180-day evaluation, and it must be activated online within 10 days or it shuts itself down. The edition and installation option (Core or Desktop Experience) are chosen at install time. Microsoft lists 512 MB as the minimum RAM for Server Core and 2 GB for Desktop Experience; the real figure for a domain controller here will be measured, not assumed.
+
+The forest is `rp.test` (NetBIOS name `RP`) on a single domain controller, `RP-DC01`, at domain functional level Windows2025Domain ([evidence](../evidence/phase-1-storage-and-vms/2026-11-14T1010-domain-controller-promoted.md)). `.test` is a name reserved for testing, so it cannot collide with a real domain, and it keeps real domain names out of the repository. Installed as Server Core to save RAM, so it is managed with PowerShell.
