@@ -48,7 +48,7 @@ flowchart LR
 | Restore drills passing | all drills in the measured window | pending | |
 | Full site-loss rebuild from the offsite copy | under 90 min | pending | |
 
-The design targets 4 weeks of passing weekly drills. The build window is shorter than that, so the result will be reported as *N drills over D days*, and the weekly schedule keeps running after the build.
+The original design targeted 4 weeks of passing weekly drills. The build window is one week with a single restore drill ([decision 0010](decisions/0010-one-week-scope.md)), so the result is reported as one drill over about a week, and the schedules are switched off at the end.
 
 ## Design decisions
 
