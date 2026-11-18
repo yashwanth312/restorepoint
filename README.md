@@ -44,7 +44,7 @@ flowchart LR
 |---|---|---|---|
 | Full-VM restore from local backup | under 15 min | 36 s to restore, 91 s until AD answered (40 GiB domain controller, one clean run, nested lab) | [restore tests](evidence/phase-2-local-backups/2026-11-14T1454-restore-tests.md) |
 | Database recovery to a chosen point in the last 7 days | RPO of 5 min or less | pending | |
-| Dedup ratio | 3:1 or better | pending | |
+| Dedup ratio | 3:1 or better | about 13:1 across 29 snapshots, empty disk space excluded, compression included, with an invented change rate of about 120 MB a day (PBS itself prints 41.73 because it counts empty space) | [six-day simulation](evidence/phase-2-local-backups/2026-11-18T1044-six-day-simulation-and-dedup-factor.md) |
 | Restore drills passing | all drills in the measured window | pending | |
 | Full site-loss rebuild from the offsite copy | under 90 min | pending | |
 
@@ -90,7 +90,7 @@ Each significant choice is written up in [`decisions/`](decisions/) with context
 decisions/   Architecture decision records
 evidence/    Dated test output behind every claim, passing and failing runs
 docs/        Plain-language explainers, diagrams and runbooks (added as they are written)
-lab/         Scripts that build and seed the lab VMs (safe to re-run)
+lab/         Scripts that build, seed and exercise the lab VMs (the seed scripts are safe to re-run)
 ```
 
 More scripts, Ansible roles and configuration are added phase by phase.
